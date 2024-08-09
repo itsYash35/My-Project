@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.3);
+        }
+        .moving-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .moving-elements div {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.5);
+            border-radius: 50%;
+            animation: move 15s linear infinite;
+        }
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100vw, 100vh);
+            }
+        }
+        .element1 { width: 30px; height: 30px; left: 10%; top: 20%; animation-duration: 20s; }
+        .element2 { width: 50px; height: 50px; left: 70%; top: 30%; animation-duration: 25s; }
+        .element3 { width: 20px; height: 20px; left: 40%; top: 70%; animation-duration: 18s; }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #f56565; /* Red-600 */
+        }
+        .header-nav {
+            border-bottom: 1px solid #333;
+            background: rgba(0, 0, 0, 0.6); /* Slightly transparent background for readability */
+        }
+        section {
+            background: rgba(0, 0, 0, 0.6); /* Transparent background to show video */
+            color: white;
+        }
+        .service-card, .skill-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover, .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        .icon-bg {
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .skill-bar {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            height: 24px;
+            margin-top: 8px;
+            position: relative;
+        }
+        .skill-progress {
+            background-color: #f56565;
+            height: 100%;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: right;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans relative">
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-bg">
+        <source src="Tri_Particles_K_Motion_Background_Loop_compressed.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Moving Elements -->
+    <div class="moving-elements">
+        <div class="element1"></div>
+        <div class="element2"></div>
+        <div class="element3"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="flex flex-col md:flex-row justify-between items-center p-6 header-nav relative z-10">
+        <h1 class="text-2xl font-bold">PORTFOLIO</h1>
+        <nav>
+            <ul class="flex space-x-4 md:space-x-8">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="flex flex-col items-center justify-center text-center h-screen z-10 relative">
+        <div class="relative">
+            <img src="yy.jpg" alt="Profile Image" class="rounded-full w-64 h-64 object-cover mx-auto border-8 border-red-600">
+            <div class="absolute inset-0 bg-red-600 opacity-50 rounded-full"></div>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-5xl font-bold">Hi, It's <span class="text-red-600">Yash</span></h2>
+            <p class="text-2xl mt-2">I'm a <span class="text-red-600">Developer</span></p>
+            <p class="text-gray-400 mt-4 px-4 md:px-0 max-w-2xl">I’m a passionate BCA student with a strong interest in software development. Currently, I’m building my skills in various programming languages and tools, aiming to create efficient, scalable, and user-friendly applications. I’m eager to contribute to real-world projects, continuously learning and growing in the tech industry.</p>
+        </div>
+        <!-- Social Links -->
+        <div class="flex space-x-4 mt-8">
+            <a href="https://www.linkedin.com/in/yash-kumar-698658289/" class="text-xl hover:text-red-600"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/itsYash35" class="text-xl hover:text-red-600"><i class="fab fa-github"></i></a>
+            <a href="#" class="text-xl hover:text-red-600"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/its.yash35?igsh=MTNxbjRkM3N4a2UwcQ==" class="text-xl hover:text-red-600"><i class="fab fa-instagram"></i></a>
+        </div>
+        <!-- Hire Me Button -->
+        <div class="mt-8">
+            <a href="#" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full">Hire me</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 md:px-20 relative z-10">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-8">My <span class="text-red-600">Services</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">I offer a wide range of services that cater to your needs. From web development to software testing, I am here to bring your ideas to life.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="icon-bg">
+                    <img src="coding.png" alt="Web Development Icon" class="w-10 h-10">
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                <p class="text-gray-400">Building tailored websites that are fast, secure, and optimized for user experience, using the latest web technologies.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="icon-bg">
+                    <img src="development.png" alt="Software Testing Icon" class="w-10 h-10">
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Software Testing</h3>
+                <p class="text-gray-400">Ensuring that your software is bug-free and performs optimally through thorough testing and quality assurance processes.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="icon-bg">
+                    <img src="coding (1).png" alt="Digital Marketing Icon" class="w-10 h-10">
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
+                <p class="text-gray-400">Creating effective digital marketing strategies to enhance your online presence and drive engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 md:px-20 relative z-10">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-8">My <span class="text-red-600">Skills</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">I possess a diverse set of skills that are essential for modern software development. Here’s a snapshot of what I can do.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Skill 1 -->
+            <div class="skill-card">
+                <div class="icon-bg">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">JavaScript</h3>
+                <p class="text-gray-400">Proficient in JavaScript for creating dynamic and interactive web applications.</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="skill-card">
+                <div class="icon-bg">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Python</h3>
+                <p class="text-gray-400">Experienced in Python programming for data analysis, automation, and web development.</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="skill-card">
+                <div class="icon-bg">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">HTML & CSS</h3>
+                <p class="text-gray-400">Skilled in HTML and CSS for creating well-structured and visually appealing web pages.</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div class="skill-card">
+                <div class="icon-bg">
+                    <i class="fa-brands fa-react"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">React</h3>
+                <p class="text-gray-400">Knowledgeable in React for building modern, responsive user interfaces and single-page applications.</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="flex flex-col items-center justify-center text-center px-4 py-12 bg-gray-800 bg-opacity-50 relative z-10">
+        <div class="content-wrapper">
+            <h2 class="text-5xl font-bold text-red-600">Education</h2>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Here is a brief overview of my educational background, highlighting the key milestones and achievements that have shaped my academic journey.</p>
+
+            <div class="mt-8 max-w-4xl mx-auto">
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8 mb-8">
+                    <h3 class="text-3xl font-bold text-red-600">Bachelor of Computer Applications (BCA)</h3>
+                    <p class="text-gray-300 mt-2">PSIT College of Higher Education, 2022 - Present</p>
+                    <p class="text-gray-400 mt-4">I’m currently pursuing my BCA degree, focusing on software development, algorithms, and data structures. My coursework includes extensive hands-on projects, where I apply my theoretical knowledge to solve real-world problems.</p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8 mb-8">
+                    <h3 class="text-3xl font-bold text-red-600">High School</h3>
+                    <p class="text-gray-300 mt-2">S.R Education Centre, Graduated 2021</p>
+                    <p class="text-gray-400 mt-4">During high school, I developed a keen interest in computer science, which laid the foundation for my future academic pursuits. I excelled in subjects like mathematics and physics, which have been instrumental in my understanding of computer science concepts.</p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8">
+                    <h3 class="text-3xl font-bold text-red-600">Additional Courses & Certifications</h3>
+                    <p class="text-gray-300 mt-2">Various online platforms</p>
+                    <p class="text-gray-400 mt-4">I have completed several online courses and certifications to enhance my skills in programming languages like Python, Java, and web development technologies. These courses have been pivotal in advancing my technical expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 md:px-20 relative z-10">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-8">My <span class="text-red-600">Experience</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">With hands-on experience in various projects and internships, I’ve gained practical knowledge and skills that complement my academic learning.</p>
+        </div>
+        <!-- Add your experience details here -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-20 relative z-10">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-8">Contact <span class="text-red-600">Me</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">Feel free to get in touch with me for any inquiries or opportunities. I’d be happy to discuss how I can contribute to your projects.</p>
+            <div class="flex flex-col items-center">
+                <a href="mailto:itsyash37@gmail.com" class="text-xl text-red-600 hover:underline">itsyash37@gmail.com</a>
+                <p class="text-gray-400 mt-4">Or use the contact form below:</p>
+                <form action="#" method="POST" class="mt-4 max-w-lg w-full">
+                    <label for="name" class="block text-left text-gray-300 mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 rounded mb-4" required>
+                    <label for="email" class="block text-left text-gray-300 mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 rounded mb-4" required>
+                    <label for="message" class="block text-left text-gray-300 mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-2 rounded mb-4" required></textarea>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-4">
+        <div class="text-right">
+            <p>&copy; 2024 Yash Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
